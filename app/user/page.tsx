@@ -3,11 +3,7 @@ import Home from '../components/home';
 import { GetServerSidePropsContext } from 'next';
 
 export default function Default() {
-  return (
-    <div className="h-full w-full">
-      <Home/>
-    </div>
-  );
+  return null;
 }
 
 

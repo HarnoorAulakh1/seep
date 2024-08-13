@@ -8,7 +8,6 @@ function Layout({ children }: { children: React.ReactNode }) {
       <hr className="border-[#474f5d] w-full h-[1px]" />
       <div className="w-full h-[90%] flex flex-row justify-center items-center">
         <div className="w-full h-full relative">
-          <div className="w-full"></div>
           <div className="absolute bottom-2 w-full  p-5">
             <div className="rounded-md focus-within:white focus-within:ring-2 focus-within:ring-offset-1">
               <input

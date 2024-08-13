@@ -9,7 +9,7 @@ export default async function middleware(req: NextRequest) {
   if(!token){
     return NextResponse.redirect(new URL("/auth",req.url))
   }
-  const response=await fetch("http://localhost:4000/auth/checkLogin",{
+  const response=await fetch("http://localhost:4000/user/checkLogin",{
     method:"GET",
     headers:{
       "Authorization":JSON.stringify(token)

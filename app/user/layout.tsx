@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Sidebar from "../components/sidebar";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,16 +10,19 @@ export const metadata: Metadata = {
 };
 
 export default async function MessagesLayout({
-  children,
+  children,messages,sidebar
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode,
+  messages:React.ReactNode,
+    sidebar:React.ReactNode
 }) {
   return (
     <div
       className={`${inter.className} bg-[#1f2329] w-full h-full flex flex-row`}
     >
-      <Sidebar />
-      <div className="w-full h-full">{children}</div>
+        {children}
+        {sidebar}
+      {messages}
     </div>
   );
 }

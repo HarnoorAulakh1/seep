@@ -1,7 +1,10 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { notificationContext } from "../components/Notification";
+import { useNotify } from "../hooks/useNotify";
+import { userContext } from "../components/Profile";
 
 function Form() {
   const [state, set] = useState<boolean>(true);
@@ -13,11 +16,12 @@ function Signup({
 }: {
   setter: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  console.log(show);
   async function handle(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const data = new FormData(form);
-    const response = await fetch("http://localhost:4000/auth/register", {
+    const response = await fetch("http://localhost:4000/user/register", {
       method: "POST",
       body: JSON.stringify({
         username: data.get("username"),
@@ -31,7 +35,7 @@ function Signup({
       },
       credentials: "include",
     });
-    if (response.status==200) alert("Account created successfully");
+    if (response.status == 200) alert("Account created successfully");
     else alert(JSON.stringify(await response.json()));
     e.target.reset();
   }
@@ -119,12 +123,14 @@ function Login({
   setter: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const router = useRouter();
+  const { show } = useNotify();
+  const { dispatch } = useContext(userContext);
   async function handle(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const data = new FormData(form);
     const keys = data.keys();
-    const response = await fetch("http://localhost:4000/auth/login", {
+    const response = await fetch("http://localhost:4000/user/login", {
       method: "POST",
       body: JSON.stringify({
         username: data.get("username"),
@@ -138,6 +144,8 @@ function Login({
     const res = await response.json();
     console.log(res.status);
     if (res.status) {
+      dispatch(res);
+      show(`Logged in as ${res.username}`);
       router.push("/user");
     }
   }

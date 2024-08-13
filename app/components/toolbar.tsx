@@ -13,15 +13,17 @@ function ToolBar() {
         A
       </div>
       <div className="flex flex-row gap-1 text-[#dbdde1]">
-        <Link href="/"><RiHome4Line
+        <Link href="/user/search"><RiHome4Line
           className=" rounded-[3px] cursor-pointer hover:bg-[#444b58] p-[6px]"
           size={30}
         /></Link>
         
+        <Link href="/user/search_side">
         <IoSearchOutline
           className=" rounded-[3px] cursor-pointer hover:bg-[#444b58] p-[6px]"
           size={30}
         />
+        </Link>
         <GoFileDirectory
           className=" cursor-pointer hover:bg-[#444b58] p-[6px] rounded-[3px]"
           size={30}
