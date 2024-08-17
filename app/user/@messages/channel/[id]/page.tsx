@@ -4,7 +4,6 @@ import { IoWarningOutline } from "react-icons/io5";
 import Link from "next/link";
 
 async function Channel({params}:{params:{id:string}}) {
-  console.log(params.id);
   const response=await fetch(`http://localhost:4000/user/getUser/${params.id}`,{
     method:"GET",
     credentials:"include"

@@ -2,8 +2,7 @@
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { notificationContext } from "../components/Notification";
-import { useNotify } from "../hooks/useNotify";
+import {useNotify} from "reactjs-notify"
 import { userContext } from "../components/Profile";
 
 function Form() {
@@ -144,8 +143,8 @@ function Login({
     const res = await response.json();
     console.log(res.status);
     if (res.status) {
-      dispatch(res);
       show(`Logged in as ${res.username}`);
+      dispatch(res);
       router.push("/user");
     }
   }

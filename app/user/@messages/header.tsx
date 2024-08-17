@@ -12,7 +12,6 @@ import { userContext } from "../../components/Profile";
 export default function Header() {
   const name = usePathname();
   const { user } = useContext(userContext);
-  console.log(user);
   function isActive(path: string) {
     if (name == path) {
       return true;

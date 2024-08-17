@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Sidebar from "./components/sidebar";
 import "./globals.css";
-import Notification from "./components/Notification";
+import dynamic from "next/dynamic";
+import { useState } from "react";
 import Profile from "./components/Profile";
+import Wrapper from "./components/Wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +26,7 @@ export default function RootLayout({
       >
         <div className="w-full h-full">
           <Profile>
-            <Notification> {children}</Notification>
+            <Wrapper> {children}</Wrapper>
           </Profile>
         </div>
       </body>
