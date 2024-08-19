@@ -43,9 +43,9 @@ function Search(value: string) {
             <IoSearchOutline className="size-5" />
             <p>Search Messages</p>
           </div>
-          <Link href="./">
+          {/* <Link href="./">
             <RxCross2 />
-          </Link>
+          </Link> */}
         </div>
         <hr className="border-[#474f5d] w-full h-[2px]" />
         <div className="w-full">

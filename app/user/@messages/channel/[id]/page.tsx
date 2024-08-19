@@ -2,6 +2,7 @@ import { FaRegUser } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { IoWarningOutline } from "react-icons/io5";
 import Link from "next/link";
+import AddFriend from "@/app/components/AddFriend";
 
 async function Channel({params}:{params:{id:string}}) {
   const response=await fetch(`http://localhost:4000/user/getUser/${params.id}`,{
@@ -10,14 +11,14 @@ async function Channel({params}:{params:{id:string}}) {
   })
   const data=await response.json();
   return (
-    <div className="bg-[#1f2329] text-[#c1c7d1] overflow-scroll overflow-x-hidden w-[58%] h-full flex flex-col gap-5 border-[#474f5d] border-l-[1px]">
+    <div className="bg-[#1f2329] text-[#c1c7d1] overflow-scroll  scroll overflow-x-hidden w-[58%] h-full flex flex-col gap-5 border-[#474f5d] border-l-[1px]">
       <div className="flex flex-col w-full">
         <div className="flex flex-row justify-between p-5 items-center w-full">
           <div className="flex flex-row gap-2 items-center">
             <FaRegUser />
             <p>User Info</p>
           </div>
-          <Link href="/user">
+          <Link href="../">
             <RxCross2 />
           </Link>
         </div>
@@ -28,10 +29,7 @@ async function Channel({params}:{params:{id:string}}) {
           <div className="rounded-xl w-[20rem] h-[20rem] bg-[#138d65] text-[15rem] flex justify-center items-center text-white">
             {(data.username.charAt(0)).toUpperCase()}
           </div>
-          <button className="bg-[#353b45] p-3 m-auto text-sm w-max rounded-md flex flex-row items-center gap-1 hover:bg-[#404753]">
-            <IoWarningOutline className="w-4 h-4" />
-            View reported messages
-          </button>
+         <AddFriend id={params.id}/>
         </div>
       </div>
       <div className=" flex flex-col gap-5 text-sm p-5">

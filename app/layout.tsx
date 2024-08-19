@@ -5,8 +5,8 @@ import "./globals.css";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import Profile from "./components/Profile";
+import "./globals.css";
 import Wrapper from "./components/Wrapper";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-[#1f2329] w-full h-full flex flex-row`}
       >
-        <div className="w-full h-full">
+        <div className="w-full h-full scroll">
           <Profile>
             <Wrapper> {children}</Wrapper>
           </Profile>
