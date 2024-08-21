@@ -143,6 +143,7 @@ function Login({
     const res = await response.json();
     console.log(res.status);
     if (res.status) {
+      console.log(`Logged in as ${res.username}`);
       show(`Logged in as ${res.username}`);
       dispatch(res);
       router.push("/user");

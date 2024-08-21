@@ -18,7 +18,7 @@ async function Channel({params}:{params:{id:string}}) {
             <FaRegUser />
             <p>User Info</p>
           </div>
-          <Link href="../">
+          <Link href="/user/cross">
             <RxCross2 />
           </Link>
         </div>

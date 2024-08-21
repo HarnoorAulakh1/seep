@@ -14,7 +14,7 @@ function ToolBar() {
         A
       </div>
       <div className="flex flex-row gap-1 text-[#dbdde1]">
-        <Link href="/user"><RiHome4Line
+        <Link href="/user/home"><RiHome4Line
           className=" rounded-[3px] cursor-pointer hover:bg-[#444b58] p-[6px]"
           size={30}
         /></Link>

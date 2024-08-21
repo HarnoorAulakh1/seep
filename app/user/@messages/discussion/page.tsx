@@ -11,7 +11,7 @@ function Discussion(){
               <LuMessagesSquare/>
                 <p>Search Messages</p>
               </div>
-              <Link href="./">
+              <Link href="/user/cross">
                 <RxCross2 />
               </Link>
             </div>
